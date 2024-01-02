@@ -1,11 +1,11 @@
-import './App.css'
+import TableComponent from './components/TableComponent'
 
 function App() {
-  return (
-    <>
-
-    </>
-  )
-}
-
+    return (
+      <>
+        <TableComponent></TableComponent>
+      </>
+    )
+  }
+  
 export default App
