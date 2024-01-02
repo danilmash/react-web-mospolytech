@@ -27,7 +27,7 @@ function TableComponent() {
     const [page, setPage] = useState<number>(1)
     const [dataSource, setDataSource] = useState<DataType[]>()
     const getUniversity = async (page: number, limit: number) => {
-        const response = await axios.get(`http://universities.hipolabs.com/search?offset=${(page-1)*limit}&limit=${limit}`)
+        const response = await axios.get(`http://universities.hipolabs.com/search?offset=${page-1*limit}&limit=${limit}`)
         setDataSource(response.data);    
     }
     useEffect(() => {
