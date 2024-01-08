@@ -1,9 +1,9 @@
 import { Navigate, RouteObject, useRoutes } from "react-router-dom";
 import Home from "../../pages/HomePage";
 import About from "../../pages/AboutPage";
-import Developer from "../../pages/DeveloperPage";
+import TransactionTable from "../../pages/TransactionPage";
 import TablePage from "../../pages/TablePage";
-import { HOME_ROUTE, ABOUT_ROUTE, DEVELOPER_ROUTE, TABLE_ROUTE } from './config';
+import { HOME_ROUTE, ABOUT_ROUTE, TRANSACTION_ROUTE, TABLE_ROUTE } from './config';
 
 const MainRouter = ({isAuth = false}) => {
     
@@ -14,7 +14,7 @@ const MainRouter = ({isAuth = false}) => {
   ];
 
   const authPath: RouteObject[] = [
-    { path: DEVELOPER_ROUTE , element: <Developer />,},
+    { path: TRANSACTION_ROUTE , element: <TransactionTable />,},
     { path: TABLE_ROUTE, element: <TablePage /> },
   ];
 
