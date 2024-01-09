@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import {useAuth} from '../contexts/AuthContext';
 import { HOME_ROUTE, ABOUT_ROUTE, TRANSACTION_ROUTE, TABLE_ROUTE } from '../app/routes/config';
 import type { MenuProps } from 'antd';
-import { Menu, Button } from 'antd'
+import { Menu, Button, Flex } from 'antd'
 import { NavLink } from "react-router-dom";
 
 const NavBar: React.FC = () => {
@@ -35,22 +34,19 @@ const NavBar: React.FC = () => {
             label: (
                 <NavLink to={TABLE_ROUTE}>Table</NavLink>
             ),
-            key: 'table-link'
+            key: 'table-link',
         },
     ])
   }
-  items.push(
-    {
-        label: (
-            <Button onClick={isAuthenticated ? logout : login}>{isAuthenticated ? "Выйти" : 'Войти'}</Button>
-        ),
-        key: 'auth-button'
-    }
-  )
+
 
   return (
     <>
-        <Menu mode="horizontal" items={items} />
+        <Flex align='center' justify='space-between'> 
+            <Menu mode="horizontal" style={{width: '100%', justifyContent: 'center'}}  items={items} />
+            <Button  onClick={isAuthenticated ? logout : login}>{isAuthenticated ? "Выйти" : 'Войти'}</Button>
+        </Flex>
+       
     </>
   );
 };

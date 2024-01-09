@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Table } from "antd";
+import { Button, Table, Tooltip } from "antd";
 import type { ColumnsType } from 'antd/es/table';
 import axios, { AxiosResponse } from 'axios';
 
@@ -62,21 +62,35 @@ const TransactionTable: React.FC<TransactionTableProps> = ({address}) => {
             title: 'Hash',
             dataIndex: 'hash',
             key: 'hash',
+            ellipsis: {
+                showTitle: false,
+            },
+                
+            
         },
         { 
             title: 'Value',
             dataIndex: 'value',
             key: 'value',
+            ellipsis: {
+                showTitle: false,
+            },
         },
         { 
             title: 'From',
             dataIndex: 'from',
             key: 'from',
+            ellipsis: {
+                showTitle: false,
+            },
         },
         { 
             title: 'To',
             dataIndex: 'to',
             key: 'to',
+            ellipsis: {
+                showTitle: false,
+            },
         },
     ];
 
