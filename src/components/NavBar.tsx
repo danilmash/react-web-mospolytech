@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {useAuth} from '../contexts/AuthContext';
-import { HOME_ROUTE, ABOUT_ROUTE, TRANSACTION_ROUTE, TABLE_ROUTE } from '../app/routes/config';
+import { HOME_ROUTE, FORM_ROUTE, TRANSACTION_ROUTE, TABLE_ROUTE } from '../app/routes/config';
 import type { MenuProps } from 'antd';
 import { Menu, Button, Flex } from 'antd'
 import { NavLink } from "react-router-dom";
@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
     },
     {
         label: (
-            <NavLink to={ABOUT_ROUTE}>About</NavLink>
+            <NavLink to={FORM_ROUTE}>Form</NavLink>
         ),
         key: 'about-link'
     },
