@@ -17,7 +17,7 @@ const MyMenu = styled(Menu)`
 const MyHeader = styled.div`
     background: var(--primaryBg); 
     border-bottom: var(--primaryBgDark) 2px solid;
-    transition: 0.3s
+    transition: 0.3s;
 `
 
 interface NavBarProps {

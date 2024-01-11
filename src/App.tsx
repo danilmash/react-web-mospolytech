@@ -9,7 +9,7 @@ import { ThemeConfig } from 'antd/es/config-provider/context'
 
 
 function App() {
-  const [appTheme, setAppTheme] = useState<ThemeConfig>()
+  const [appTheme, setAppTheme] = useState<ThemeConfig>(lightTheme)
   const changeTheme = () => {
     let newTheme = null
     if (appTheme == darkTheme) {
@@ -21,7 +21,10 @@ function App() {
     }
     setAppTheme(newTheme)
   }
-  
+  if (!document.documentElement.getAttribute('data-theme')) {
+    document.documentElement.setAttribute('data-theme', 'light')
+
+  }
   const { isAuthenticated } = useAuth()
     return (
       <>

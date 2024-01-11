@@ -1,12 +1,24 @@
 export const darkTheme = {
     token: {
-        colorPrimary: '#03fffe',
-        colorTextBase: '#fff',
+        colorPrimary: 'red',
+        colorText: '#fff',
         colorBgBase: '#f0f0f0'
     },
     components: {
         Button: {
             defaultColor: 'black',
+        },
+        Table: {
+            colorText: 'black',
+            headerColor: 'black',
+            colorBgContainer: '#acacac',
+            headerBg: '#707070',
+        },
+        Input: {
+            colorText: 'black',
+        },
+        Card: {
+            colorText: 'black',
         }
     }
 }
