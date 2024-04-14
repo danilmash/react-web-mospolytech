@@ -1,11 +1,17 @@
-import { Button, Card, Input } from "antd";
+import { Button, Card, Input, Upload } from "antd";
 import { useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 import styled from "styled-components";
+import MyDocument from "../components/PDFFile";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 interface IMyForm {
     name: string;
     age: string;
+    file: {
+        file: File,
+        fileList: Object[],
+    };
 }
 
 const MyCard = styled(Card)`
@@ -26,6 +32,7 @@ function About() {
     })
     
     const saveElement: SubmitHandler<IMyForm> = data => {
+            console.log(data.file )
             setTasks((prev) => [...prev, data])
             reset();
         }
@@ -62,15 +69,48 @@ function About() {
                         <Input {...field} />
                         )}
                     />
-                    <div>{errors.age?.message}</div>
+                    <p>{errors.age?.message}</p>
+                    <Controller
+                        name="file"
+                        control={control}
+                        render={({ field }) => 
+                            {
+                                return (
+                                    <Upload {...field} beforeUpload={() => false}>
+                                        <Button>Выбрать файл</Button>
+                                    </Upload>
+                                )
+                            }
+                        }
+                    />
                     <Button style={{marginTop: '15px'}} htmlType="submit">Сохранить</Button>
                 </form>
             </MyCard>
             {
-                tasks.map((task) => 
-                    <p style={{maxWidth: '500px', margin:'50px auto 0'}}>
-                        {task.name} - {task.age}
-                    </p>
+                tasks.map((task, index) => 
+                    {
+                        return (
+                            <>
+                                <PDFDownloadLink
+                                style={{margin: '0 auto', display:"block", maxWidth: '500px'}}
+                                    document={
+                                        <MyDocument
+                                            name={task.name}
+                                            picture={task.file.file}
+                                        />
+                                    }
+                                    fileName="file.pdf" // Или любое другое название
+                                >
+                                    {({blob, url, loading, error}) => (loading ? 'Загрузка...' : 'Скачать')}
+                                </PDFDownloadLink>
+                                <p key={index} style={{maxWidth: '500px', margin: '0 auto'}}>
+                                    {task.name} - {task.age} - {task.file.file.name}
+                                </p>
+                            
+                            </>
+                        )
+                    }
+                    
                 )
             }   
         </>
