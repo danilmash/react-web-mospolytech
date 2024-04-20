@@ -1,6 +1,6 @@
 import React, { ReactNode, useContext } from 'react';
 import {useAuth} from '../contexts/AuthContext';
-import { HOME_ROUTE, FORM_ROUTE, TRANSACTION_ROUTE, TABLE_ROUTE } from '../app/routes/config';
+import { HOME_ROUTE, FORM_ROUTE, TRANSACTION_ROUTE, TABLE_ROUTE, DYNAMIC_ROUTE } from '../app/routes/config';
 import type { MenuProps } from 'antd';
 import { Menu, Button, Flex, ConfigProvider } from 'antd'
 import { NavLink } from "react-router-dom";
@@ -38,6 +38,12 @@ const NavBar: React.FC<NavBarProps> = ({children}) => {
                 <NavLink to={FORM_ROUTE}>Form</NavLink>
             ),
             key: 'about-link'
+        },
+        {
+            label: (
+                <NavLink to={DYNAMIC_ROUTE}>DynamicPagination</NavLink>
+            ),
+            key: 'dynamic-link'
         },
     ]
 
