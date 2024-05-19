@@ -16,6 +16,8 @@ describe("NavBar", () => {
     fireEvent.click(screen.getByText("Войти"));
 
     // Предположим, что при входе должны появиться ссылки "Профиль" и "Выход"
+    expect(screen.getByText("Developer")).toBeInTheDocument();
+    expect(screen.getByText("Table")).toBeInTheDocument();
     expect(screen.getByText("Выйти")).toBeInTheDocument();
   });
 });
