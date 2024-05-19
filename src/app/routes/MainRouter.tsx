@@ -6,8 +6,7 @@ import TablePage from "../../pages/TablePage";
 import DynamicPagination from "../../pages/DynamicPaginationPage";
 import { HOME_ROUTE, FORM_ROUTE, TRANSACTION_ROUTE, TABLE_ROUTE, DYNAMIC_ROUTE } from './config';
 
-const MainRouter = ({isAuth = false}) => {
-    
+const MainRouter = ({ isAuth = false }) => {
   const basedPath: RouteObject[] = [
     { path: HOME_ROUTE, element: <Home />},
     { path: FORM_ROUTE, element: <Form />},
@@ -16,16 +15,16 @@ const MainRouter = ({isAuth = false}) => {
   ];
 
   const authPath: RouteObject[] = [
-    { path: TRANSACTION_ROUTE , element: <TransactionTable />,},
+    { path: TRANSACTION_ROUTE, element: <TransactionTable /> },
     { path: TABLE_ROUTE, element: <TablePage /> },
   ];
 
   const resultPaths: RouteObject[] = basedPath;
-  
-  if(isAuth){
-    resultPaths.push(...authPath)
+
+  if (isAuth) {
+    resultPaths.push(...authPath);
   }
   return useRoutes(resultPaths);
-}
+};
 
 export default MainRouter;
