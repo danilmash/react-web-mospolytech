@@ -21,7 +21,7 @@ const MyHeader = styled.div`
 `;
 
 interface NavBarProps {
-  children: ReactNode;
+  children: ReactNode | null;
 }
 
 const NavBar: React.FC<NavBarProps> = ({ children }) => {
