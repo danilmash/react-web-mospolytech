@@ -90,7 +90,7 @@ function About() {
               document={<MyDocument name={task.name} picture={task.file.file} />}
               fileName="file.pdf" // Или любое другое название
             >
-              {({ blob, url, loading, error }) => (loading ? "Загрузка..." : "Скачать")}
+              {({ loading }) => (loading ? "Загрузка..." : "Скачать")}
             </PDFDownloadLink>
             <p key={index} style={{ maxWidth: "500px", margin: "0 auto" }}>
               {task.name} - {task.age} - {task.file.file.name}

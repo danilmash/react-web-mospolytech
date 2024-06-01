@@ -1,8 +1,8 @@
-import React, { ReactNode, useContext } from 'react';
-import {useAuth} from '../contexts/AuthContext';
-import { HOME_ROUTE, FORM_ROUTE, TRANSACTION_ROUTE, TABLE_ROUTE, DYNAMIC_ROUTE } from '../app/routes/config';
-import type { MenuProps } from 'antd';
-import { Menu, Button, Flex, ConfigProvider } from 'antd'
+import React, { ReactNode } from "react";
+import { useAuth } from "../contexts/AuthContext";
+import { HOME_ROUTE, FORM_ROUTE, TRANSACTION_ROUTE, TABLE_ROUTE, DYNAMIC_ROUTE } from "../app/routes/config";
+import type { MenuProps } from "antd";
+import { Menu, Button, Flex, ConfigProvider } from "antd";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -49,46 +49,10 @@ const NavBar: React.FC<NavBarProps> = ({ children }) => {
           key: "table-link",
         },
         {
-            label: (
-                <NavLink to={DYNAMIC_ROUTE}>DynamicPagination</NavLink>
-            ),
-            key: 'dynamic-link'
+          label: <NavLink to={DYNAMIC_ROUTE}>DynamicPagination</NavLink>,
+          key: "dynamic-link",
         },
-    ]
-
-    if (isAuthenticated) {
-        items.push(...[
-            {
-                label: (
-                    <NavLink to={TRANSACTION_ROUTE}>Developer</NavLink>
-                ),
-                key: 'developer-link'
-            },
-            {
-                label: (
-                    <NavLink to={TABLE_ROUTE}>Table</NavLink>
-                ),
-                key: 'table-link',
-            },
-        ])
-    }
-
-    
-
-
-    return (
-        <>
-           <MyHeader>
-             <NavBarWrapper className='wrapper' align='center' justify='space-between'>
-                    {children}
-                    <ConfigProvider theme={{components: {Menu: {horizontalLineHeight: '56px'}}}}>
-                        <MyMenu mode="horizontal" style={{width: '100%', justifyContent: 'center'}}  items={items} />
-                    </ConfigProvider >
-                    <Button  onClick={isAuthenticated ? logout : login}>{isAuthenticated ? "Выйти" : 'Войти'}</Button>
-             </NavBarWrapper>
-           </MyHeader>
-        
-        </>
+      ],
     );
   }
 

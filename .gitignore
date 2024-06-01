@@ -1,5 +1,7 @@
 # Logs
 coverage
+.github
+.husky
 logs
 *.log
 npm-debug.log*
